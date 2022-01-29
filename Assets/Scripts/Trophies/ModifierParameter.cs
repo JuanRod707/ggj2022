@@ -10,6 +10,6 @@ namespace Assets.Scripts.Trophies
         public int MaxMod;
         public int MinMod;
 
-        public int StatChange => Random.Range(MinMod, MaxMod);
+        public int StatChange => Random.Range(MinMod, MaxMod + 1);
     }
 }

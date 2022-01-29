@@ -10,6 +10,6 @@ namespace Assets.Scripts.Trophies
 
         public ModifierParameter[] parameters;
 
-        public int Affinity => Random.Range(MinAffinity, MaxAffinity);
+        public int Affinity => Random.Range(MinAffinity, MaxAffinity + 1);
     }
 }
