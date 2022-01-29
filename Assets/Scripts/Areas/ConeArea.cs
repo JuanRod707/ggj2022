@@ -21,10 +21,10 @@ namespace Assets.Scripts.Areas
             //Handles.DrawWireArc(transform.position, transform.forward, transform.up, angle, length);
         }
 
-        public bool IsInArea(Vector2 target)
+        public bool IsInArea(Vector3 target)
         {
             var targetRelative = transform.InverseTransformPoint(target);
-            var inRange = Vector2.Distance(transform.position, target) < length;
+            var inRange = Vector3.Distance(transform.position, target) < length;
             var inArcRight = targetRelative.x + Aperture * targetRelative.z > 0;
             var inArcLeft = targetRelative.x - Aperture * targetRelative.z < 0;
 

@@ -9,8 +9,11 @@ namespace Assets.Scripts.Actors
         [SerializeField] BasicAttack attack;
         [SerializeField] ConeArea attackArea;
 
-        public void Initialize() => 
+        public void Initialize()
+        {
             movement.Initialize(attackArea);
+            attack.Initialize(attackArea);
+        }
 
         public void MoveTowards(Vector3 movementVector) => 
             movement.Do(movementVector);
