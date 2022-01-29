@@ -18,7 +18,7 @@ namespace Assets.Scripts.Areas
 
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitLeft), Color.yellow);
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitRight), Color.yellow);
-            //Handles.DrawWireArc(transform.position, transform.forward, transform.up, angle, length);
+            Handles.DrawWireArc(transform.position, transform.forward, arcLimitRight, angle, length);
         }
 
         public bool IsInArea(Vector3 target)
