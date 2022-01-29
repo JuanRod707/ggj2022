@@ -73,7 +73,7 @@ InputManager:
     m_Name: Attack
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
+    negativeButton: r
     positiveButton: left ctrl
     altNegativeButton: 
     altPositiveButton: mouse 0
@@ -90,7 +90,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: left alt
+    positiveButton: space
     altNegativeButton: 
     altPositiveButton: mouse 1
     gravity: 1000
