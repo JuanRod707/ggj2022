@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Actors
 {
-    [CreateAssetMenu(fileName="Stats", menuName="Stats/Actors")]
+    [CreateAssetMenu(fileName="Stats", menuName="Configuration/ActorStats")]
     public class ActorStats : ScriptableObject
     {
         public int movement;
@@ -13,7 +13,7 @@ namespace Assets.Scripts.Actors
         public float MoveSpeed => movement * 0.4f;
 
         public float AttackArea => (strength + dexterity) * 3;
-        public float AttackSpeed => 1 / (dexterity / 2f);
+        public float AttackSpeed => 1 / (dexterity / 5f);
 
         public int Health => vitality * 3;
 
