@@ -17,7 +17,7 @@ namespace Assets.Scripts.Actors
         public void Initialize(MonsterProvider monsterProvider)
         {
             movement.Initialize(attackArea, view, baseStats.moveSpeed);
-            attack.Initialize(attackArea, monsterProvider);
+            attack.Initialize(view, attackArea, monsterProvider);
             dash.Initialize(movement);
         }
 

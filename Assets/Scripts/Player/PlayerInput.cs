@@ -3,15 +3,16 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] float minimumAxisThreshold;
+
     HeroCharacter character;
     Vector3 movementVector;
-
 
     void FixedUpdate()
     {
         movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-
-        if (movementVector.magnitude > 0)
+        
+        if (movementVector.magnitude > minimumAxisThreshold)
             character.MoveTowards(movementVector);
     }
 

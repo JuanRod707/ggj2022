@@ -8,9 +8,11 @@ namespace Assets.Scripts.Actors
     {
         ConeArea attackArea;
         MonsterProvider monsterProvider;
+        ActorView view;
+
         public void Do()
         {
-
+            view.OnAttack();
             var hits = monsterProvider.GetMonstersInArea(attackArea);
             foreach (var monster in hits)
             {
@@ -22,8 +24,9 @@ namespace Assets.Scripts.Actors
             Debug.Log("I attacked");
         }
 
-        public void Initialize(ConeArea attackArea, MonsterProvider monsterProvider)
+        public void Initialize(ActorView view, ConeArea attackArea, MonsterProvider monsterProvider)
         {
+            this.view = view;
             this.monsterProvider = monsterProvider;
             this.attackArea = attackArea;
         }
