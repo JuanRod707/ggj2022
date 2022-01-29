@@ -8,7 +8,10 @@ namespace Assets.Scripts.Player
         [SerializeField] HeroCharacter character;
         [SerializeField] PlayerInput input;
 
-        public void Initialize() => 
+        public void Initialize()
+        {
+            character.Initialize();
             input.Initialize(character);
+        }
     }
 }

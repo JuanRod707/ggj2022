@@ -8,10 +8,13 @@ public class PlayerInput : MonoBehaviour
 
     void FixedUpdate()
     {
-        var movementVector = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        var movementVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         if (movementVector.magnitude > 0)
             character.MoveTowards(movementVector);
+
+        if (Input.GetButtonDown("Attack"))
+            character.Attack();
     }
 
     public void Initialize(HeroCharacter character) => 
