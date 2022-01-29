@@ -813,7 +813,21 @@ MonoBehaviour:
   decos:
   - {fileID: 7205835565591847751}
   - {fileID: 5597324066587962504}
-  materials:
-  - {fileID: 2100000, guid: 8dc044d7c87aac64497c3ec3d7c23b29, type: 2}
-  - {fileID: 2100000, guid: 434b98325693a3d4e9521ca11b479fbf, type: 2}
-  - {fileID: 2100000, guid: b8927c31ae2e8f944b51bdbfe27ac4b1, type: 2}
+  weightedMaterials:
+    materialWeights:
+    - Material: {fileID: 2100000, guid: 434b98325693a3d4e9521ca11b479fbf, type: 2}
+      Weight: 24
+    - Material: {fileID: 2100000, guid: b8927c31ae2e8f944b51bdbfe27ac4b1, type: 2}
+      Weight: 24
+    - Material: {fileID: 2100000, guid: 7daf8ef736bcbb840b1094a4f8209e0c, type: 2}
+      Weight: 3
+    - Material: {fileID: 2100000, guid: 74c7c88dd764c4f4c9214e8c918f29f3, type: 2}
+      Weight: 2
+    - Material: {fileID: 2100000, guid: b74625cbfc287074eaf3748cc8e56c7c, type: 2}
+      Weight: 3
+    - Material: {fileID: 2100000, guid: 451357a7ee2efb646b31dff2b595dc2e, type: 2}
+      Weight: 2
+    - Material: {fileID: 2100000, guid: 503e14440fb8bf340958de5b59f45e36, type: 2}
+      Weight: 1
+    - Material: {fileID: 2100000, guid: 38a95e1726817164f84a6afea20183fc, type: 2}
+      Weight: 1

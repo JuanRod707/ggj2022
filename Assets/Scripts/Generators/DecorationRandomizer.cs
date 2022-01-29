@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Assets.Scripts.Common;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Generators
 {
@@ -15,14 +12,39 @@ namespace Assets.Scripts.Generators
         [SerializeField] MeshRenderer mesh;
 
         [SerializeField] GameObject[] decos;
-        [SerializeField] Material[] materials;
+        [SerializeField] MaterialWeightedList weightedMaterials;
 
         void Start()
         {
-            mesh.material = materials.PickOne();
+            mesh.material = weightedMaterials.TakeOne();
 
-            if (Random.Range(0, 100) < chanceOfDeco)
+            if (UnityEngine.Random.Range(0, 100) < chanceOfDeco)
                 decos.PickOne().SetActive(true);
+        }
+    }
+
+    [Serializable]
+    public class MaterialWeightPair
+    {
+        public Material Material;
+        public int Weight;
+    }
+
+    [Serializable]
+    public class MaterialWeightedList
+    {
+        [SerializeField] MaterialWeightPair[] materialWeights;
+
+        public Material TakeOne()
+        {
+            var flatList = new List<Material>();
+            foreach (var mw in materialWeights)
+            {
+                foreach(var _ in Enumerable.Range(0, mw.Weight))
+                    flatList.Add(mw.Material);
+            }
+
+            return flatList.PickOne();
         }
     }
 }
