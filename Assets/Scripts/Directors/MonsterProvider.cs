@@ -11,9 +11,18 @@ namespace Assets.Scripts.Directors
         [SerializeField] Monster[] monsters;
         private HeroCharacter hero;
 
-        public void Initialize() { }
+        public void Initialize()
+        {
+            foreach (var m in monsters)
+                m.Initialize(hero, OnMonsterDied);
+        }
 
         public IEnumerable<Monster> GetMonstersInArea(ConeArea area) =>
-            monsters.Where(a => area.IsInArea(a.transform.position));
+            monsters.Where(m => m.IsAlive && area.IsInArea(m.transform.position));
+
+        void OnMonsterDied(Monster monster)
+        {
+            Debug.Log("monster has died");
+        }
     }
 }
