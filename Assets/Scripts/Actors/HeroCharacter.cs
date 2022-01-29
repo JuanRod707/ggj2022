@@ -8,6 +8,7 @@ namespace Assets.Scripts.Actors
     public class HeroCharacter : MonoBehaviour
     {
         [SerializeField] BasicMovement movement;
+        [SerializeField] ActorView view;
         [SerializeField] BasicAttack attack;
         [SerializeField] ConeArea attackArea;
         [SerializeField] HeroStats baseStats;
@@ -15,7 +16,7 @@ namespace Assets.Scripts.Actors
 
         public void Initialize(MonsterProvider monsterProvider)
         {
-            movement.Initialize(attackArea, baseStats.moveSpeed);
+            movement.Initialize(attackArea, view, baseStats.moveSpeed);
             attack.Initialize(attackArea, monsterProvider);
             dash.Initialize(movement);
         }

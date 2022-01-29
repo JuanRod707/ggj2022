@@ -8,6 +8,7 @@ namespace Assets.Scripts.Generators
     {
         [SerializeField] int dimension;
         [SerializeField] float size;
+        [SerializeField] float maxWallHeight;
         [SerializeField] GameObject floorTilePrefab;
         [SerializeField] GameObject wallTilePrefab;
         [SerializeField] Transform tileContainer;
@@ -35,6 +36,10 @@ namespace Assets.Scripts.Generators
                     {
                         var wall = Instantiate(wallTilePrefab, tileContainer);
                         wall.transform.localPosition = new Vector3(i, 0, j);
+
+                        var scale = Vector3.one;
+                        scale.y += Random.Range(0f, maxWallHeight);
+                        wall.transform.localScale = scale;
                     }
 
                 }

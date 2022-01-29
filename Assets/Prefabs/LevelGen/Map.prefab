@@ -122,6 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dimension: 50
   size: 1.2
+  maxWallHeight: 1
   floorTilePrefab: {fileID: 2860899123810624407, guid: d48addf46036b854293efde906eba40f, type: 3}
   wallTilePrefab: {fileID: 7831795672948538228, guid: 6df46dac258b75a4d8956d7b7b7fccaf, type: 3}
   tileContainer: {fileID: 3179481696389865452}

@@ -7,6 +7,7 @@ namespace Assets.Scripts.Actors
     public class BasicMovement : MonoBehaviour
     {
         [SerializeField] NavMeshAgent agent;
+        [SerializeField] ActorView view;
 
         ConeArea attackArea;
         float moveSpeed;
@@ -15,13 +16,16 @@ namespace Assets.Scripts.Actors
         {
             if (enabled && agent.isOnNavMesh)
             {
-                agent.Move(moveDirection * moveSpeed * Time.fixedDeltaTime);
+                var moveVector = moveDirection * moveSpeed * Time.fixedDeltaTime;
+                agent.Move(moveVector);
                 attackArea.SetDirection(moveDirection);
+                view.OnMoved(moveVector);
             }
         }
 
-        public void Initialize(ConeArea attackArea, float moveSpeed)
+        public void Initialize(ConeArea attackArea, ActorView view, float moveSpeed)
         {
+            this.view = view;
             this.attackArea = attackArea;
             this.moveSpeed = moveSpeed;
         }

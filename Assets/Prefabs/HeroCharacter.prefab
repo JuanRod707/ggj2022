@@ -127,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 3
   angle: 70
+  k: 0
 --- !u!1 &5726074099578199575
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {fileID: 5726074099578199560}
+  view: {fileID: 1025476456017838916}
   attack: {fileID: 5726074099578199563}
   attackArea: {fileID: 5726074099446776920}
   baseStats: {fileID: 11400000, guid: 17f163a8f42d4c74a84c2493492d1f8d, type: 2}
@@ -194,6 +196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 248889532611444910}
+  view: {fileID: 0}
 --- !u!114 &5726074099578199563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,6 +255,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5726074100646810445}
+  - component: {fileID: 1025476456017838916}
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
@@ -275,6 +279,19 @@ Transform:
   m_Father: {fileID: 5726074099578199561}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1025476456017838916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726074100646810444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5284d53e05b2416449ec53528a8d2356, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite: {fileID: 8248309191942558976}
 --- !u!1 &7806116952794555159
 GameObject:
   m_ObjectHideFlags: 0

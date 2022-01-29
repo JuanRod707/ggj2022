@@ -7,6 +7,7 @@ namespace Assets.Scripts.Areas
     {
         [SerializeField] float length;
         [SerializeField] float angle;
+        float k = 0.0175f;
 
         float Aperture => Mathf.Sin(angle / 2 * Mathf.Deg2Rad)
                           / Mathf.Cos(angle / 2 * Mathf.Deg2Rad);
@@ -18,8 +19,8 @@ namespace Assets.Scripts.Areas
 
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitLeft), Color.yellow);
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitRight), Color.yellow);
-            Handles.DrawWireArc(transform.position, -transform.up,transform.forward, angle/2, length);
-            Handles.DrawWireArc(transform.position, transform.up, transform.forward, angle / 2, length);
+            Handles.DrawWireArc(transform.position, -transform.up,transform.forward, angle/2, length * angle * k);
+            Handles.DrawWireArc(transform.position, transform.up, transform.forward, angle / 2, length * angle * k);
         }
 
         public bool IsInArea(Vector3 target)
