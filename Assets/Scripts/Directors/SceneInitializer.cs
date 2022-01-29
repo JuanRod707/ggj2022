@@ -13,7 +13,11 @@ namespace Assets.Scripts.Directors
         [SerializeField] PlayerEntity player;
         [SerializeField] MonsterProvider monsterProvider;
 
-        void Start() => 
+        void Start()
+        {
+            monsterProvider.Initialize();
             player.Initialize(monsterProvider);
+        }
+            
     }
 }

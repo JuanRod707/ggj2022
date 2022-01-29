@@ -8,7 +8,7 @@ namespace Assets.Scripts.Actors.Stats
         public float moveSpeed;
         public float attackSpeed;
         public float damageArea;
-        public float damagePower;
-        public float health;
+        public int damagePower;
+        public int health;
     }
 }

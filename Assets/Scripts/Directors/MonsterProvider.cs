@@ -8,11 +8,10 @@ namespace Assets.Scripts.Directors
 {
     public class MonsterProvider : MonoBehaviour
     {
-        private IEnumerable<Monster> monsters;
+        [SerializeField] Monster[] monsters;
         private HeroCharacter hero;
 
-        public void Initialize(IEnumerable<Monster> monsters) =>
-            this.monsters = monsters;
+        public void Initialize() { }
 
         public IEnumerable<Monster> GetMonstersInArea(ConeArea area) =>
             monsters.Where(a => area.IsInArea(a.transform.position));

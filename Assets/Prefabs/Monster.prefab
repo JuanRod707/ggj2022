@@ -186,6 +186,7 @@ GameObject:
   - component: {fileID: 2509358254511008546}
   - component: {fileID: 6392403808618776387}
   - component: {fileID: 4205696899050485890}
+  - component: {fileID: 2164017330555808215}
   m_Layer: 0
   m_Name: Monster
   m_TagString: Untagged
@@ -226,6 +227,7 @@ MonoBehaviour:
   attackArea: {fileID: 4630607725316306749}
   baseStats: {fileID: 11400000, guid: 17f163a8f42d4c74a84c2493492d1f8d, type: 2}
   view: {fileID: 6425778233754087175}
+  health: {fileID: 2164017330555808215}
 --- !u!114 &2509358254511008546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +276,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2164017330555808215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443956748123548896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f89ec854a29a4040a0535bdf9e20faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7991576633581767327
 GameObject:
   m_ObjectHideFlags: 0

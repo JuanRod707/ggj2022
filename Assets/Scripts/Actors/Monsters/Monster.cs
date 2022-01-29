@@ -11,13 +11,21 @@ public class Monster : MonoBehaviour
     [SerializeField] ConeArea attackArea;
     [SerializeField] ActorStats baseStats;
     [SerializeField] ActorView view;
-    
+    [SerializeField] Health health;
+
     public void Initialize(HeroCharacter hero)
     {
         movement.Initialize(attackArea, view, baseStats.moveSpeed);
         attack.Initialize(attackArea, hero);
+        health.Initialize(baseStats.health);
     }
     
+    public void ReceiveDamage(int damage)
+    {
+        health.ReceiveDamage(damage);
+
+    }
+
     public void Attack() => attack.Do();
 
 }

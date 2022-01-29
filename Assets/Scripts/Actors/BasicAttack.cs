@@ -14,8 +14,9 @@ namespace Assets.Scripts.Actors
             var hits = monsterProvider.GetMonstersInArea(attackArea);
             foreach (var monster in hits)
             {
+                Debug.Log("Le pegué a un monstruo");
                 //var damage = Random.Range(stats.MinDamage, stats.MaxDamage);
-                //monster.ReceiveDamage(damage);
+                monster.ReceiveDamage(5);
             }
 
             Debug.Log("I attacked");

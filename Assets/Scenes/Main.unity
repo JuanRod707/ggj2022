@@ -469,6 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6440b600e568e47a4e2d11ba3ab593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsters:
+  - {fileID: 1153041088}
 --- !u!1 &445701392
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +817,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959322322}
   m_CullTransparentMesh: 1
+--- !u!114 &1153041088 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6443956748123548902, guid: 99c537c3a32e229459c2fd016af0ca64, type: 3}
+  m_PrefabInstance: {fileID: 6443956747106325675}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de39951e7153c4544ae61e43651523c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1285797964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6443956748123548903, guid: 99c537c3a32e229459c2fd016af0ca64, type: 3}
