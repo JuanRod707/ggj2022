@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Actors
+namespace Assets.Scripts.Actors.Hero
 {
     public class Dash : MonoBehaviour
     {
@@ -9,13 +9,14 @@ namespace Assets.Scripts.Actors
         [SerializeField] float speed;
         [SerializeField] NavMeshAgent agent;
 
-        BasicMovement movement;
+        HeroMovement movement;
         Vector3 direction;
         float elapsedTime;
 
-        public void Initialize(BasicMovement movement)
+        public void Initialize(HeroMovement movement)
         {
             this.movement = movement;
+            enabled = false;
         }
 
         public void Do(Vector3 direction)
@@ -33,7 +34,10 @@ namespace Assets.Scripts.Actors
         void FixedUpdate()
         {
             var moveVector = direction * speed * Time.fixedDeltaTime;
-            agent.Move(moveVector);
+
+            if(agent.isOnNavMesh)
+                agent.Move(moveVector);
+
             elapsedTime += Time.fixedDeltaTime;
             if (elapsedTime > duration)
                 OnDashComplete();

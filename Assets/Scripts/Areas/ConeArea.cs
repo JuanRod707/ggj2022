@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Areas
 {
-    public class ConeArea : MonoBehaviour
+    public class ConeArea : ShapedArea
     {
         [SerializeField] float length;
         [SerializeField] float angle;
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Areas
             Handles.DrawWireArc(transform.position, transform.up, transform.forward, angle / 2, length * angle * k);
         }
 
-        public bool IsInArea(Vector3 target)
+        public override bool IsInArea(Vector3 target)
         {
             var targetRelative = transform.InverseTransformPoint(target);
             var inRange = Vector3.Distance(transform.position, target) < length;

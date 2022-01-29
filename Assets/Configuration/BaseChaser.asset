@@ -10,10 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f5eb0198c72c50409a3d5f74f376b8d, type: 3}
-  m_Name: MonsterBaseStats
+  m_Name: BaseChaser
   m_EditorClassIdentifier: 
-  moveSpeed: 4.5
-  attackSpeed: 1
-  damageArea: 3
-  damagePower: 2
-  health: 20
+  movement: 3
+  dexterity: 2
+  strength: 8
+  vitality: 3

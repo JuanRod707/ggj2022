@@ -1,4 +1,5 @@
 using Assets.Scripts.Actors;
+using Assets.Scripts.Actors.Hero;
 using UnityEngine;
 
 public class PlayerInput : MonoBehaviour

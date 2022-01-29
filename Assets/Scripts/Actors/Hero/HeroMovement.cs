@@ -2,12 +2,12 @@ using Assets.Scripts.Areas;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Assets.Scripts.Actors
+namespace Assets.Scripts.Actors.Hero
 {
-    public class BasicMovement : MonoBehaviour
+    public class HeroMovement : MonoBehaviour
     {
         [SerializeField] NavMeshAgent agent;
-        [SerializeField] ActorView view;
+        [SerializeField] HeroView view;
 
         ConeArea attackArea;
         float moveSpeed;
@@ -23,7 +23,7 @@ namespace Assets.Scripts.Actors
             }
         }
 
-        public void Initialize(ConeArea attackArea, ActorView view, float moveSpeed)
+        public void Initialize(ConeArea attackArea, HeroView view, float moveSpeed)
         {
             this.view = view;
             this.attackArea = attackArea;

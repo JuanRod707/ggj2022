@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Areas;
+﻿using Assets.Scripts.Actors.Hero;
+using Assets.Scripts.Areas;
 using UnityEngine;
 
 namespace Assets.Scripts.Actors.Monsters

@@ -1,43 +1,49 @@
 using System;
-using Assets.Scripts.Actors;
-using Assets.Scripts.Actors.Monsters;
-using Assets.Scripts.Actors.Stats;
+using Assets.Scripts.Actors.Hero;
 using Assets.Scripts.Areas;
-using Assets.Scripts.Directors;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class Monster : MonoBehaviour
+namespace Assets.Scripts.Actors.Monsters
 {
-    [SerializeField] BasicMovement movement;
-    [SerializeField] MonsterAttack attack;
-    [SerializeField] ConeArea attackArea;
-    [SerializeField] ActorStats baseStats;
-    [SerializeField] ActorView view;
-    [SerializeField] Health health;
-    Action<Monster> onDeath;
-
-    public bool IsAlive { get; private set; }
-
-    public void Initialize(HeroCharacter hero, Action<Monster> onDeath)
+    public class Monster : MonoBehaviour
     {
-        IsAlive = true;
-        this.onDeath = onDeath;
-        movement.Initialize(attackArea, view, baseStats.moveSpeed);
-        attack.Initialize(attackArea, hero);
-        health.Initialize(baseStats.health, OnDeath);
-    }
+        [SerializeField] ActorStats baseStats;
+
+        [SerializeField] MonsterMovement movement;
+        [SerializeField] MonsterView view;
+        [SerializeField] Health health;
+        [SerializeField] NavMeshAgent agent;
+        [SerializeField] BaseAi brain;
+        [SerializeField] ProximityDetector detector;
+
+        Action<Monster> onDeath;
+
+        public bool IsAlive { get; private set; }
+
+        public void Initialize(HeroCharacter hero, Action<Monster> onDeath)
+        {
+            view.Initialize();
+            movement.Initialize(baseStats.MoveSpeed, view, agent);
+            brain.Initialize(hero, baseStats, movement, view);
+            health.Initialize(baseStats.Health, OnDeath);
+            detector.Initialize(hero, brain, view);
+
+            IsAlive = true;
+            this.onDeath = onDeath;
+        }
     
-    public void ReceiveDamage(int damage)
-    {
-        if(IsAlive)
-            health.ReceiveDamage(damage);
-    }
-
-    public void Attack() => attack.Do();
-
-    void OnDeath()
-    {
-        onDeath(this);
-        IsAlive = false;
+        public void ReceiveDamage(int damage)
+        {
+            if(IsAlive)
+                health.ReceiveDamage(damage);
+        }
+        
+        void OnDeath()
+        {
+            onDeath(this);
+            IsAlive = false;
+            brain.Disable();
+        }
     }
 }

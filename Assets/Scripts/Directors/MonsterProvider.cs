@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Actors;
+using Assets.Scripts.Actors.Hero;
+using Assets.Scripts.Actors.Monsters;
 using Assets.Scripts.Areas;
 using UnityEngine;
 
@@ -8,11 +10,12 @@ namespace Assets.Scripts.Directors
 {
     public class MonsterProvider : MonoBehaviour
     {
-        [SerializeField] Monster[] monsters;
-        private HeroCharacter hero;
+        IEnumerable<Monster> monsters;
 
-        public void Initialize()
+        public void Initialize(HeroCharacter hero)
         {
+            monsters = GetComponentsInChildren<Monster>();
+
             foreach (var m in monsters)
                 m.Initialize(hero, OnMonsterDied);
         }

@@ -199,10 +199,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5726074099578199561}
-  - component: {fileID: 5726074099578199562}
-  - component: {fileID: 5726074099578199560}
-  - component: {fileID: 5726074099578199563}
-  - component: {fileID: 5158914573617443982}
+  - component: {fileID: 9033678078886953900}
+  - component: {fileID: 9000768340072430845}
+  - component: {fileID: 8402002526331588822}
+  - component: {fileID: 6085865698200959621}
+  - component: {fileID: 4389414739363203182}
   - component: {fileID: 248889532611444910}
   m_Layer: 0
   m_Name: HeroCharacter
@@ -228,7 +229,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5726074099578199562
+--- !u!114 &9033678078886953900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,16 +238,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 5726074099578199575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509b802b8e4e28142b144aa58f4daedd, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ffd5cbcc37e20f4fbe506628e264208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 5726074099578199560}
+  movement: {fileID: 8402002526331588822}
   view: {fileID: 1025476456017838916}
-  attack: {fileID: 5726074099578199563}
+  attack: {fileID: 9000768340072430845}
   attackArea: {fileID: 5726074099446776920}
-  baseStats: {fileID: 11400000, guid: 17f163a8f42d4c74a84c2493492d1f8d, type: 2}
-  dash: {fileID: 5158914573617443982}
---- !u!114 &5726074099578199560
+  baseStats: {fileID: 11400000, guid: 0aa8644ea23dfec4098a360a5bb7526e, type: 2}
+  dash: {fileID: 6085865698200959621}
+  health: {fileID: 4389414739363203182}
+--- !u!114 &9000768340072430845
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -255,12 +257,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5726074099578199575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df299c8a440d4ff47a8bb26eeb19b34a, type: 3}
+  m_Script: {fileID: 11500000, guid: e77e73ab02a85184c80d61a00d413591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8402002526331588822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726074099578199575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97dd152310714d743a78b6f30aca5f82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 248889532611444910}
   view: {fileID: 1025476456017838916}
---- !u!114 &5726074099578199563
+--- !u!114 &6085865698200959621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -269,24 +283,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 5726074099578199575}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89b62c2b3aade6498d33e3199217b2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5158914573617443982
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5726074099578199575}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f786dfa79b71a654c9de8849837796bc, type: 3}
+  m_Script: {fileID: 11500000, guid: 5da4b8707364a9842901d7b32da564f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.3
-  speed: 15
+  speed: 12
   agent: {fileID: 248889532611444910}
+--- !u!114 &4389414739363203182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726074099578199575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f89ec854a29a4040a0535bdf9e20faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!195 &248889532611444910
 NavMeshAgent:
   m_ObjectHideFlags: 0

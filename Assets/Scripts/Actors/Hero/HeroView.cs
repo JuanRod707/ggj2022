@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Actors
+namespace Assets.Scripts.Actors.Hero
 {
-    public class ActorView : MonoBehaviour
+    public class HeroView : MonoBehaviour
     {
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] Animator swordSwing;

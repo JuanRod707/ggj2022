@@ -15,8 +15,8 @@ namespace Assets.Scripts.Directors
 
         void Start()
         {
-            monsterProvider.Initialize();
             player.Initialize(monsterProvider);
+            monsterProvider.Initialize(player.Hero);
         }
             
     }
