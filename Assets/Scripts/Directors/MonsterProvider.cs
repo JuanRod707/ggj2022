@@ -22,7 +22,8 @@ namespace Assets.Scripts.Directors
 
         void OnMonsterDied(Monster monster)
         {
-            Debug.Log("monster has died");
+           //if(!monsters.Any(m => m.IsAlive))
+               //player wins
         }
     }
 }
