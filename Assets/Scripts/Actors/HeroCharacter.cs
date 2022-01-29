@@ -11,7 +11,7 @@ namespace Assets.Scripts.Actors
         [SerializeField] ActorView view;
         [SerializeField] BasicAttack attack;
         [SerializeField] ConeArea attackArea;
-        [SerializeField] HeroStats baseStats;
+        [SerializeField] ActorStats baseStats;
         [SerializeField] Dash dash;
 
         public void Initialize(MonsterProvider monsterProvider)

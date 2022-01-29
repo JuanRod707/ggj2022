@@ -127,7 +127,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 3
   angle: 70
-  k: 0
 --- !u!1 &5726074099578199575
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8856871936460350541}
   - component: {fileID: 8248309191942558976}
+  - component: {fileID: 1274343276363994582}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -342,7 +342,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 831cbfc083acace47b6953ce98167e0d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -374,3 +374,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1274343276363994582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7806116952794555159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d60bcbc3529884693fd6348429b9c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

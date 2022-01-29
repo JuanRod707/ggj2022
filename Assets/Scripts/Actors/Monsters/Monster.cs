@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Actors;
+using Assets.Scripts.Actors.Monsters;
+using Assets.Scripts.Actors.Stats;
+using Assets.Scripts.Areas;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
     [SerializeField] BasicMovement movement;
-    [SerializeField] BasicAttack attack;
+    [SerializeField] MonsterAttack attack;
     [SerializeField] ConeArea attackArea;
-    [SerializeField] HeroStats baseStats;
+    [SerializeField] ActorStats baseStats;
+    [SerializeField] ActorView view;
     
-    public void Initialize(HeroProvider heroProvider)
+    public void Initialize(HeroCharacter hero)
     {
-        movement.Initialize(attackArea, baseStats.moveSpeed);
-        attack.Initialize(attackArea, heroProvider);
+        movement.Initialize(attackArea, view, baseStats.moveSpeed);
+        attack.Initialize(attackArea, hero);
     }
     
     public void Attack() => attack.Do();

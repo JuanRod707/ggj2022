@@ -12,10 +12,15 @@ namespace Assets.Scripts.Generators
     public class DecorationRandomizer : MonoBehaviour
     {
         [SerializeField] float chanceOfDeco;
+        [SerializeField] MeshRenderer mesh;
+
         [SerializeField] GameObject[] decos;
+        [SerializeField] Material[] materials;
 
         void Start()
         {
+            mesh.material = materials.PickOne();
+
             if (Random.Range(0, 100) < chanceOfDeco)
                 decos.PickOne().SetActive(true);
         }
