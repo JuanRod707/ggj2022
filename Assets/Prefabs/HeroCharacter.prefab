@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 5726074099578199562}
   - component: {fileID: 5726074099578199560}
   - component: {fileID: 5726074099578199563}
+  - component: {fileID: 5158914573617443982}
   - component: {fileID: 248889532611444910}
   m_Layer: 0
   m_Name: HeroCharacter
@@ -179,6 +180,7 @@ MonoBehaviour:
   attack: {fileID: 5726074099578199563}
   attackArea: {fileID: 5726074099446776920}
   baseStats: {fileID: 11400000, guid: 17f163a8f42d4c74a84c2493492d1f8d, type: 2}
+  dash: {fileID: 5158914573617443982}
 --- !u!114 &5726074099578199560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +206,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c89b62c2b3aade6498d33e3199217b2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5158914573617443982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5726074099578199575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f786dfa79b71a654c9de8849837796bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.3
+  speed: 15
+  agent: {fileID: 248889532611444910}
 --- !u!195 &248889532611444910
 NavMeshAgent:
   m_ObjectHideFlags: 0

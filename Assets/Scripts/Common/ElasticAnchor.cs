@@ -12,7 +12,7 @@ namespace Assets.Scripts.Common
         [SerializeField] Transform anchor;
         [SerializeField] float elasticity;
 
-        void Update() => 
+        void LateUpdate() => 
             transform.position = Vector3.Lerp(transform.position, anchor.position, elasticity * Time.deltaTime);
     }
 }

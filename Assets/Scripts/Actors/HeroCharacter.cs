@@ -11,16 +11,19 @@ namespace Assets.Scripts.Actors
         [SerializeField] BasicAttack attack;
         [SerializeField] ConeArea attackArea;
         [SerializeField] HeroStats baseStats;
+        [SerializeField] Dash dash;
 
         public void Initialize(MonsterProvider monsterProvider)
         {
             movement.Initialize(attackArea, baseStats.moveSpeed);
             attack.Initialize(attackArea, monsterProvider);
+            dash.Initialize(movement);
         }
 
         public void MoveTowards(Vector3 movementVector) => 
             movement.Do(movementVector);
 
         public void Attack() => attack.Do();
+        public void Dash(Vector3 movementVector) => dash.Do(movementVector);
     }
 }

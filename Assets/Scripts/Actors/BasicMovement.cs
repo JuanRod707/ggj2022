@@ -13,9 +13,9 @@ namespace Assets.Scripts.Actors
 
         public void Do(Vector3 moveDirection)
         {
-            if (agent.isOnNavMesh)
+            if (enabled && agent.isOnNavMesh)
             {
-                agent.Move(moveDirection * moveSpeed * Time.deltaTime);
+                agent.Move(moveDirection * moveSpeed * Time.fixedDeltaTime);
                 attackArea.SetDirection(moveDirection);
             }
         }
@@ -25,5 +25,11 @@ namespace Assets.Scripts.Actors
             this.attackArea = attackArea;
             this.moveSpeed = moveSpeed;
         }
+
+        public void Disable() => 
+            enabled = false;
+
+        public void Enable() => 
+            enabled = true;
     }
 }
