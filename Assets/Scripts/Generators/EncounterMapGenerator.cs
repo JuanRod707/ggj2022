@@ -7,9 +7,10 @@ namespace Assets.Scripts.Generators
     public class EncounterMapGenerator : MonoBehaviour
     {
         [SerializeField] int dimension;
-        [SerializeField] float chanceRatio;
+        [SerializeField] float size;
         [SerializeField] GameObject floorTilePrefab;
         [SerializeField] GameObject wallTilePrefab;
+        [SerializeField] Transform tileContainer;
 
         void Start()
         {
@@ -25,10 +26,16 @@ namespace Assets.Scripts.Generators
             {
                 for (int j = 0; j < dimension; j++)
                 {
-                    if(map[i,j])
-                        Instantiate(floorTilePrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
+                    if (map[i, j])
+                    {
+                        var tile = Instantiate(floorTilePrefab, tileContainer);
+                        tile.transform.localPosition = new Vector3(i, 0, j);
+                    }
                     else
-                        Instantiate(wallTilePrefab, new Vector3(i, 0, j), Quaternion.identity, transform);
+                    {
+                        var wall = Instantiate(wallTilePrefab, tileContainer);
+                        wall.transform.localPosition = new Vector3(i, 0, j);
+                    }
 
                 }
             }
@@ -60,7 +67,7 @@ namespace Assets.Scripts.Generators
             var origin = new Vector2(dimension / 2, dimension / 2);
             var target = new Vector2(x,y);
 
-            return Mathf.InverseLerp(0, dimension/2, Vector2.Distance(origin, target) / chanceRatio);
+            return Mathf.InverseLerp(0, dimension/2, Vector2.Distance(origin, target) / size);
         }
     }
 }

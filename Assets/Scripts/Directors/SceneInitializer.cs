@@ -11,8 +11,9 @@ namespace Assets.Scripts.Directors
     public class SceneInitializer : MonoBehaviour
     {
         [SerializeField] PlayerEntity player;
+        [SerializeField] MonsterProvider monsterProvider;
 
         void Start() => 
-            player.Initialize();
+            player.Initialize(monsterProvider);
     }
 }

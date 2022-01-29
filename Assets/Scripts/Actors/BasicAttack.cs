@@ -7,11 +7,11 @@ namespace Assets.Scripts.Actors
     public class BasicAttack : MonoBehaviour
     {
         ConeArea attackArea;
-        private Provider provider;
+        MonsterProvider monsterProvider;
         public void Do()
         {
 
-            var hits = provider.GetMonstersInArea(attackArea);
+            var hits = monsterProvider.GetMonstersInArea(attackArea);
             foreach (var monster in hits)
             {
                 //var damage = Random.Range(stats.MinDamage, stats.MaxDamage);
@@ -21,7 +21,10 @@ namespace Assets.Scripts.Actors
             Debug.Log("I attacked");
         }
 
-        public void Initialize(ConeArea attackArea) => 
+        public void Initialize(ConeArea attackArea, MonsterProvider monsterProvider)
+        {
+            this.monsterProvider = monsterProvider;
             this.attackArea = attackArea;
+        }
     }
 }

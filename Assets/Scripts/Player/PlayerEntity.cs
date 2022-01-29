@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Actors;
+using Assets.Scripts.Directors;
 using UnityEngine;
 
 namespace Assets.Scripts.Player
@@ -8,9 +9,9 @@ namespace Assets.Scripts.Player
         [SerializeField] HeroCharacter character;
         [SerializeField] PlayerInput input;
 
-        public void Initialize()
+        public void Initialize(MonsterProvider monsterProvider)
         {
-            character.Initialize();
+            character.Initialize(monsterProvider);
             input.Initialize(character);
         }
     }

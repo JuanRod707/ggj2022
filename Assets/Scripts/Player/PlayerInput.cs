@@ -8,7 +8,7 @@ public class PlayerInput : MonoBehaviour
 
     void FixedUpdate()
     {
-        var movementVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        var movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
 
         if (movementVector.magnitude > 0)
             character.MoveTowards(movementVector);
