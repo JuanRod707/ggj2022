@@ -4846,7 +4846,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
@@ -4973,7 +4973,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5100,7 +5100,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -5278,7 +5278,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -10543,8 +10543,8 @@ MonoBehaviour:
   deathSfx: {fileID: 5418285851880034058}
   dashSfx: {fileID: 6557344832994356688}
   attackClips:
-  - {fileID: 8300000, guid: 6b3ac200dacec704f8321544ede64c37, type: 3}
-  - {fileID: 8300000, guid: 99b9094061d95ec49815f030bfd72fe8, type: 3}
+  - {fileID: 8300000, guid: b9b466dc39d84ce409710924c0a69d66, type: 3}
+  - {fileID: 8300000, guid: 524b2bd1e258aeb48a409760484119c6, type: 3}
   hitClips:
   - {fileID: 8300000, guid: da1f0ecda835b294bbccf74c251436d6, type: 3}
   - {fileID: 8300000, guid: 4c24e841a5c2b3e4893c9172e67b5123, type: 3}
@@ -10553,6 +10553,7 @@ MonoBehaviour:
   dashClips:
   - {fileID: 8300000, guid: 8918bf7b8a284f643bb10dcbae80eea4, type: 3}
   - {fileID: 8300000, guid: 2f7d98e939676314bb9fac17a5fbb865, type: 3}
+  - {fileID: 8300000, guid: 870c0e78bda88914a93d85c251048769, type: 3}
 --- !u!1 &6891650221110920195
 GameObject:
   m_ObjectHideFlags: 0

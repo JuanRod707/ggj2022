@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Areas;
+﻿using System;
+using Assets.Scripts.Areas;
 using Assets.Scripts.Directors;
 using Assets.Scripts.Persistence;
 using Assets.Scripts.UI;
@@ -16,17 +17,19 @@ namespace Assets.Scripts.Actors.Hero
         [SerializeField] Dash dash;
         [SerializeField] Health health;
         FillBar hpBar;
+        Action onDeath;
 
         public Vector3 Position => transform.position;
 
         public ActorStats currentStats { get; private set; }
 
-        public void Initialize(MonsterProvider monsterProvider, FillBar hpBar)
+        public void Initialize(MonsterProvider monsterProvider, FillBar hpBar, Action onDeath)
         {
             this.hpBar = hpBar;
+            this.onDeath = onDeath;
 
-            currentStats = SessionData.playerStats != null ? SessionData.playerStats.CopyTo() : baseStats.CopyTo();
-            SessionData.playerStats = currentStats.CopyTo();
+            currentStats = SessionData.PlayerStats != null ? SessionData.PlayerStats.CopyTo() : baseStats.CopyTo();
+            SessionData.PlayerStats = currentStats.CopyTo();
 
             hpBar.InitializeFull(currentStats.Health);
             movement.Initialize(attackArea, view, currentStats.MoveSpeed);
@@ -44,7 +47,9 @@ namespace Assets.Scripts.Actors.Hero
 
         void OnDeath()
         {
-            
+            movement.StopMoving();
+            view.OnDeath();
+            onDeath();
         }
 
         public void MoveTowards(Vector3 movementVector) => 

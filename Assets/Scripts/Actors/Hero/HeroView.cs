@@ -55,5 +55,11 @@ namespace Assets.Scripts.Actors.Hero
             animator.SetTrigger("Hurt");
             audio.PlayHit();
         }
+
+        public void OnDeath()
+        {
+            audio.PlayDeath();
+            animator.SetTrigger("Death");
+        }
     }
 }

@@ -20,6 +20,9 @@ namespace Assets.Scripts.Player
         [SerializeField] FillBar ruinBar;
         [SerializeField] FillBar prospBar;
         [SerializeField] StatPanel statPanel;
+        [SerializeField] GameObject gameOverPanel;
+        [SerializeField] AudioSource selectProsperitySfx;
+        [SerializeField] AudioSource selectRuinSfx;
 
         IEnumerable<Trophy> trophies;
         Action onEndLevel;
@@ -28,6 +31,7 @@ namespace Assets.Scripts.Player
 
         public void EnableSelectTrophy(IEnumerable<Trophy> trophies)
         {
+            Hero.StopMoving();
             this.trophies = trophies;
             input.enabled = false;
             trophyInput.enabled = true;
@@ -38,7 +42,7 @@ namespace Assets.Scripts.Player
             this.onEndLevel = onEndLevel;
             trophyInput.enabled = false;
             input.enabled = true;
-            character.Initialize(monsterProvider, hpBar);
+            character.Initialize(monsterProvider, hpBar, OnHeroDeath);
             input.Initialize(character);
             trophyInput.Initialize(SelectRuin, SelectProsperity);
 
@@ -51,26 +55,33 @@ namespace Assets.Scripts.Player
             statPanel.SetValues(Hero.currentStats);
         }
 
+        void OnHeroDeath()
+        {
+            input.enabled = false;
+            gameOverPanel.SetActive(true);
+        }
+
         void SelectProsperity()
         {
             var trophy = trophies.First(t => t.Alignment == Alignment.Prosperity);
-            SessionData.playerStats = Hero.currentStats.WithTrophy(trophy);
+            SessionData.PlayerStats = Hero.currentStats.WithTrophy(trophy);
             SessionData.Prosperity += trophy.Affinity;
 
-            statPanel.SetValues(SessionData.playerStats);
+            statPanel.SetValues(SessionData.PlayerStats);
             prospBar.SetValue(SessionData.Prosperity);
-            
+            selectProsperitySfx.Play();
             onEndLevel();
         }
 
         void SelectRuin()
         {
             var trophy = trophies.First(t => t.Alignment == Alignment.Ruin);
-            SessionData.playerStats = Hero.currentStats.WithTrophy(trophy);
+            SessionData.PlayerStats = Hero.currentStats.WithTrophy(trophy);
             SessionData.Ruin += trophy.Affinity;
 
-            statPanel.SetValues(SessionData.playerStats);
+            statPanel.SetValues(SessionData.PlayerStats);
             ruinBar.SetValue(SessionData.Ruin);
+            selectRuinSfx.Play();
 
             onEndLevel();
         }

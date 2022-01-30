@@ -112,6 +112,7 @@ MonoBehaviour:
   animator: {fileID: 183652809754461823}
   sprite: {fileID: 2790198951853134227}
   trailVfx: {fileID: 0}
+  specialVfx: {fileID: 0}
   audio: {fileID: 6000548140426219891}
 --- !u!114 &7126045653426898197
 MonoBehaviour:
@@ -407,7 +408,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -649,7 +650,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -776,7 +777,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -903,7 +904,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4011916121400482785, guid: 282851e664e0b52468f8474ce27c8b48, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
