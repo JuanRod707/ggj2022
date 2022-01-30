@@ -22,4 +22,16 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
 
     }
+
+    public void credits()
+    {
+        SceneManager.LoadScene("Credits");
+
+    }
+
+    public void howToPLay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+
+    }
 }
