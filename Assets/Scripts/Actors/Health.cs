@@ -10,19 +10,22 @@ namespace Assets.Scripts.Actors
 {
     public class Health: MonoBehaviour
     {
-        int currentHitpoints;
+        public int Current { get; private set; }
         Action onDeath;
+        Action onHurt;
 
-        public void Initialize(int hitpoints, Action onDeath)
+        public void Initialize(int hitpoints, Action onDeath, Action onHurt)
         {
             this.onDeath = onDeath;
-            currentHitpoints = hitpoints;
+            this.onHurt = onHurt;
+            Current = hitpoints;
         }
 
         public void ReceiveDamage(int damage)
         {
-            currentHitpoints -= damage;
-            if (currentHitpoints <= 0)
+            Current -= damage;
+            onHurt();
+            if (Current <= 0)
                 onDeath();
         }
     }

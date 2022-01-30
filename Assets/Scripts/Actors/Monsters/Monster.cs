@@ -26,13 +26,17 @@ namespace Assets.Scripts.Actors.Monsters
             view.Initialize();
             movement.Initialize(baseStats.MoveSpeed, view, agent);
             brain.Initialize(hero, baseStats, movement, view);
-            health.Initialize(baseStats.Health, OnDeath);
+            health.Initialize(baseStats.Health, OnDeath, OnHurt);
             detector.Initialize(hero, brain, view);
 
             IsAlive = true;
             this.onDeath = onDeath;
         }
-    
+
+        void OnHurt()
+        {
+        }
+
         public void ReceiveDamage(int damage)
         {
             if(IsAlive)

@@ -31,6 +31,9 @@ namespace Assets.Scripts.Actors.Monsters
             cone.LookAt(hero.Position);
             isPerformingAction = true;
             view.ShowAttack();
+
+            OnSwing();
+
             StartCoroutine(WaitForNextAttack());
         }
 

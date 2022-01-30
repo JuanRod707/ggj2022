@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Areas;
 using Assets.Scripts.Directors;
+using Assets.Scripts.Persistence;
+using Assets.Scripts.UI;
 using UnityEngine;
 
 namespace Assets.Scripts.Actors.Hero
@@ -13,19 +15,28 @@ namespace Assets.Scripts.Actors.Hero
         [SerializeField] ActorStats baseStats;
         [SerializeField] Dash dash;
         [SerializeField] Health health;
+        FillBar hpBar;
 
         public Vector3 Position => transform.position;
 
         ActorStats currentStats;
 
-        public void Initialize(MonsterProvider monsterProvider)
+        public void Initialize(MonsterProvider monsterProvider, FillBar hpBar)
         {
-            currentStats = baseStats.CopyTo();
+            this.hpBar = hpBar;
+
+            currentStats = SessionData.playerStats != null ? SessionData.playerStats.CopyTo() : baseStats.CopyTo();
+            SessionData.playerStats = currentStats.CopyTo();
+
+            hpBar.InitializeFull(currentStats.Health);
             movement.Initialize(attackArea, view, currentStats.MoveSpeed);
             attack.Initialize(currentStats, view, attackArea, monsterProvider);
             dash.Initialize(movement);
-            health.Initialize(currentStats.Health, OnDeath);
+            health.Initialize(currentStats.Health, OnDeath, OnHurt);
         }
+
+        void OnHurt() => 
+            hpBar.SetValue(health.Current);
 
         void OnDeath()
         {
