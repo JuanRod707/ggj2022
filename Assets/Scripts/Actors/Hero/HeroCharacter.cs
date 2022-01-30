@@ -31,8 +31,9 @@ namespace Assets.Scripts.Actors.Hero
             hpBar.InitializeFull(currentStats.Health);
             movement.Initialize(attackArea, view, currentStats.MoveSpeed);
             attack.Initialize(currentStats, view, attackArea, monsterProvider, movement);
-            dash.Initialize(movement);
+            dash.Initialize(movement, view);
             health.Initialize(currentStats.Health, OnDeath, OnHurt);
+            view.Initialize();
         }
 
         void OnHurt() => 
@@ -53,5 +54,7 @@ namespace Assets.Scripts.Actors.Hero
         {
             health.ReceiveDamage(damage);
         }
+
+        public void StopMoving() => movement.StopMoving();
     }
 }

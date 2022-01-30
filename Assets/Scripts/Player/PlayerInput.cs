@@ -7,14 +7,22 @@ public class PlayerInput : MonoBehaviour
     [SerializeField] float minimumAxisThreshold;
 
     HeroCharacter character;
-    Vector3 movementVector;
+    Vector3 lastFrmeInput;
+    Vector3 lastMovementVector;
 
     void FixedUpdate()
     {
-        movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
-        
+        var movementVector = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
+
         if (movementVector.magnitude > minimumAxisThreshold)
+        {
             character.MoveTowards(movementVector);
+            lastMovementVector = movementVector;
+        }
+        else if (lastFrmeInput == lastMovementVector)
+            character.StopMoving();
+
+        lastFrmeInput = movementVector;
     }
 
     void Update()
@@ -23,7 +31,7 @@ public class PlayerInput : MonoBehaviour
             character.Attack();
 
         if (Input.GetButtonDown("Dash"))
-            character.Dash(movementVector);
+            character.Dash(lastMovementVector);
     }
 
     public void Initialize(HeroCharacter character) => 

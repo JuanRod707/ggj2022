@@ -12,9 +12,11 @@ namespace Assets.Scripts.Actors.Hero
         HeroMovement movement;
         Vector3 direction;
         float elapsedTime;
+        HeroView view;
 
-        public void Initialize(HeroMovement movement)
+        public void Initialize(HeroMovement movement, HeroView view)
         {
+            this.view = view;
             this.movement = movement;
             enabled = false;
         }
@@ -27,6 +29,7 @@ namespace Assets.Scripts.Actors.Hero
                 movement.Disable();
                 elapsedTime = 0f;
                 enabled = true;
+                view.OnDash();
             }
 
         }
@@ -47,6 +50,7 @@ namespace Assets.Scripts.Actors.Hero
         {
             movement.Enable();
             enabled = false;
+            view.OnStopDash();
         }
     }
 }

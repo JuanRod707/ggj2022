@@ -35,5 +35,8 @@ namespace Assets.Scripts.Actors.Hero
 
         public void Enable() => 
             enabled = true;
+
+        public void StopMoving() => 
+            view.OnStop();
     }
 }
