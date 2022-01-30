@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts.Actors.Monsters;
+using Assets.Scripts.Common;
 using Assets.Scripts.Persistence;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ namespace Assets.Scripts.Directors
 {
     public class MonsterSpawner : MonoBehaviour
     {
-        [SerializeField] Monster monsterPrefab;
+        [SerializeField] Monster[] monsterPrefabs;
 
         [SerializeField] int baseAmount;
         [SerializeField] float radius;
@@ -27,7 +28,8 @@ namespace Assets.Scripts.Directors
 
             foreach (var _ in Enumerable.Range(0, amountToSpawn))
             {
-                var monster = Instantiate(monsterPrefab, transform);
+                var prefab = monsterPrefabs.PickOne();
+                var monster = Instantiate(prefab, transform);
                 var spawnPos = Random.insideUnitCircle * radius;
                 monster.transform.position = new Vector3(spawnPos.x, 0, spawnPos.y);
                 monsters.Add(monster);

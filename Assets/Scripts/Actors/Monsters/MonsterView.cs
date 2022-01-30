@@ -23,8 +23,10 @@ namespace Assets.Scripts.Actors.Monsters
         {
         }
 
-        public void ShowMovement(object moveVector)
+        public void ShowMovement(Vector3 moveVector)
         {
+            if (moveVector.magnitude > 0)
+                sprite.flipX = moveVector.x < 0;
         }
 
         public void ShowAttack()

@@ -6,19 +6,20 @@ namespace Assets.Scripts.Actors.Hero
     public class Dash : MonoBehaviour
     {
         [SerializeField] float duration;
-        [SerializeField] float speed;
         [SerializeField] NavMeshAgent agent;
 
+        float speed;
         HeroMovement movement;
         Vector3 direction;
         float elapsedTime;
         HeroView view;
 
-        public void Initialize(HeroMovement movement, HeroView view)
+        public void Initialize(HeroMovement movement, HeroView view, ActorStats stats)
         {
             this.view = view;
             this.movement = movement;
             enabled = false;
+            speed = stats.MoveSpeed * 3;
         }
 
         public void Do(Vector3 direction)

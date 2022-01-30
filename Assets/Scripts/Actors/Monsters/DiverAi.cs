@@ -24,7 +24,7 @@ namespace Assets.Scripts.Actors.AI
             MonsterView view)
         {
             base.Initialize(hero, stats, movement, view);
-            diveAttack.Initialize(cone, view);
+            diveAttack.Initialize(cone, view, stats);
             GenerateRandomOffset();
         }
 

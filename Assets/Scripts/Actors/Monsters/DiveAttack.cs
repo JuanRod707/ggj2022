@@ -8,17 +8,18 @@ namespace Assets.Scripts.Actors.AI
     public class DiveAttack : MonoBehaviour
     {
         [SerializeField] float duration;
-        [SerializeField] float speed;
         [SerializeField] NavMeshAgent agent;
 
+        float speed;
         float elapsed;
         MonsterView view;
         Vector3 direction;
 
-        public void Initialize(ConeArea cone, MonsterView view)
+        public void Initialize(ConeArea cone, MonsterView view, ActorStats stats)
         {
             this.view = view;
             enabled = false;
+            speed = stats.MoveSpeed * 3;
         }
 
         public void Do(Vector3 direction)

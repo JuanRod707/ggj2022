@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2181279696321875258}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1793870692489063035}
@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac09cbcfe57abad4696fa7c63ca6a9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 3
-  angle: 70
+  length: 1.5
+  angle: 20
 --- !u!1 &2540829039431057532
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,9 +190,10 @@ GameObject:
   - component: {fileID: 4722723521133993744}
   - component: {fileID: 4205696899050485890}
   - component: {fileID: 2164017330555808215}
-  - component: {fileID: 1781328869018813327}
+  - component: {fileID: 2307090437644585533}
+  - component: {fileID: 5892401489957969505}
   m_Layer: 0
-  m_Name: Monster
+  m_Name: Snail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +234,7 @@ MonoBehaviour:
   view: {fileID: 1711049575583108872}
   health: {fileID: 2164017330555808215}
   agent: {fileID: 4205696899050485890}
-  brain: {fileID: 1781328869018813327}
+  brain: {fileID: 2307090437644585533}
   detector: {fileID: 2177443416828519960}
 --- !u!114 &4722723521133993744
 MonoBehaviour:
@@ -281,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f89ec854a29a4040a0535bdf9e20faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1781328869018813327
+--- !u!114 &2307090437644585533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -290,14 +291,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 6443956748123548896}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e4250c108b2c4447b850b9486b0ae99, type: 3}
+  m_Script: {fileID: 11500000, guid: 27318e48032ff09409afb6a5b2a273e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cone: {fileID: 4630607725316306749}
   animationEvents: {fileID: 0}
-  proximityThreshold: 1
-  attackFrequency: 1.5
+  proximityThreshold: 3
+  attackFrequency: 4
   frequencyModifier: 0.5
+  diveAttack: {fileID: 5892401489957969505}
+  hoverOffsetDistance: 4
+--- !u!114 &5892401489957969505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6443956748123548896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19aecb106cc8774480125fc51794b2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 0.7
+  agent: {fileID: 4205696899050485890}
 --- !u!1 &7991576633581767327
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +328,7 @@ GameObject:
   - component: {fileID: 1224131366825569122}
   - component: {fileID: 183652809754461823}
   m_Layer: 0
-  m_Name: Winged
+  m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -371,7 +388,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 32002203fcab4e64c8702056a09341f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aa52429ad3ae35c40b5e7d8881891188, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -404,7 +421,7 @@ Animator:
   m_GameObject: {fileID: 7991576633581767327}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c66d1c04608e518409359c3bf8432510, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6be74812d5dc3cd4b95f7b12c10673d2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
