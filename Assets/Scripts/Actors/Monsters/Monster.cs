@@ -1,6 +1,7 @@
 using System;
 using Assets.Scripts.Actors.Hero;
 using Assets.Scripts.Areas;
+using Assets.Scripts.Persistence;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,16 +18,19 @@ namespace Assets.Scripts.Actors.Monsters
         [SerializeField] BaseAi brain;
         [SerializeField] ProximityDetector detector;
 
+        ActorStats currentStats;
         Action<Monster> onDeath;
 
         public bool IsAlive { get; private set; }
 
         public void Initialize(HeroCharacter hero, Action<Monster> onDeath)
         {
+            currentStats = baseStats.Leveled(SessionData.Level);
+
             view.Initialize();
-            movement.Initialize(baseStats.MoveSpeed, view, agent);
-            brain.Initialize(hero, baseStats, movement, view);
-            health.Initialize(baseStats.Health, OnDeath, OnHurt);
+            movement.Initialize(currentStats.MoveSpeed, view, agent);
+            brain.Initialize(hero, currentStats, movement, view);
+            health.Initialize(currentStats.Health, OnDeath, OnHurt);
             detector.Initialize(hero, brain, view);
 
             IsAlive = true;

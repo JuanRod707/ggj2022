@@ -12,5 +12,7 @@ namespace Assets.Scripts.Persistence
         public static ActorStats playerStats;
         public static int Ruin;
         public static int Prosperity;
+
+        public static int Level = 1;
     }
 }

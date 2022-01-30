@@ -12,7 +12,6 @@ namespace Assets.Scripts.Actors.Monsters
     {
         MonsterView view;
         NavMeshAgent agent;
-        float speed;
 
         public void MoveTowards(Vector3 target)
         {
@@ -26,7 +25,7 @@ namespace Assets.Scripts.Actors.Monsters
         {
             this.agent = agent;
             this.view = view;
-            this.speed = speed;
+            this.agent.speed = speed;
         }
 
         public void Stop() =>

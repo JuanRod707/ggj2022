@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Persistence;
 using Assets.Scripts.Player;
 using Assets.Scripts.Trophies;
 using UnityEngine;
@@ -22,7 +23,11 @@ namespace Assets.Scripts.Directors
             monsterProvider.Initialize(player.Hero, OnAllMonstersDead);
         }
 
-        void EndLevel() => Invoke("NextLevel", 2f);
+        void EndLevel()
+        {
+            SessionData.Level++;
+            Invoke("NextLevel", 2f);
+        }
 
         void NextLevel() => SceneManager.LoadScene("Main");
 

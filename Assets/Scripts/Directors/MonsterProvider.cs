@@ -11,34 +11,20 @@ namespace Assets.Scripts.Directors
 {
     public class MonsterProvider : MonoBehaviour
     {
-        [SerializeField] Monster monsterPrefab;
-        [SerializeField] int amount;
-        [SerializeField] float radius;
+        [SerializeField] MonsterSpawner spawner;
 
-        List<Monster> monsters;
+        IEnumerable<Monster> monsters;
         Action onAllMonstersDead;
 
         public void Initialize(HeroCharacter hero, Action onAllMonstersDead)
         {
-            monsters = new List<Monster>();
-            SpawnMonsters();
+            spawner.Initialize();
+            monsters = spawner.SpawnedMonsters;
 
             this.onAllMonstersDead = onAllMonstersDead;
 
             foreach (var m in monsters)
                 m.Initialize(hero, OnMonsterDied);
-        }
-
-        void SpawnMonsters()
-        {
-            foreach (var _ in Enumerable.Range(0, amount))
-            {
-                var monster = Instantiate(monsterPrefab, transform);
-                var spawnPos = Random.insideUnitCircle * radius;
-                monster.transform.position = new Vector3(spawnPos.x, 0, spawnPos.y);
-                monsters.Add(monster);
-            }
-
         }
 
         public IEnumerable<Monster> GetMonstersInArea(ConeArea area) =>

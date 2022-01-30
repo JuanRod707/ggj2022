@@ -42,5 +42,16 @@ namespace Assets.Scripts.Actors
                 vitality = this.vitality + trophy.ModFor(Stat.Vitality)
             };
         }
+
+        public ActorStats Leveled(int level)
+        {
+            return new ActorStats
+            {
+                movement = this.movement + (level - 1) * 3,
+                dexterity = this.dexterity + (level - 1) * 3,
+                strength = this.strength + (level - 1) * 3,
+                vitality = this.vitality + (level - 1) * 3
+            };
+        }
     }
 }
