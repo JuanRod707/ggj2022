@@ -1,4 +1,5 @@
-﻿using Unity.Mathematics;
+﻿using System;
+using Assets.Scripts.Common;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -9,12 +10,12 @@ namespace Assets.Scripts.Generators
         [SerializeField] int dimension;
         [SerializeField] float size;
         [SerializeField] float maxWallHeight;
-        [SerializeField] GameObject floorTilePrefab;
-        [SerializeField] GameObject wallTilePrefab;
+        [SerializeField] TileSet[] tileSets;
         [SerializeField] Transform tileContainer;
 
         void Start()
         {
+            var tileSet = tileSets.PickOne();
             var map = new bool[dimension, dimension];
 
             var initialX = dimension / 2;
@@ -29,12 +30,12 @@ namespace Assets.Scripts.Generators
                 {
                     if (map[i, j])
                     {
-                        var tile = Instantiate(floorTilePrefab, tileContainer);
+                        var tile = Instantiate(tileSet.FloorTilePrefab, tileContainer);
                         tile.transform.localPosition = new Vector3(i, 0, j);
                     }
                     else
                     {
-                        var wall = Instantiate(wallTilePrefab, tileContainer);
+                        var wall = Instantiate(tileSet.WallTilePrefab, tileContainer);
                         wall.transform.localPosition = new Vector3(i, 0, j);
 
                         var scale = Vector3.one;
@@ -74,5 +75,12 @@ namespace Assets.Scripts.Generators
 
             return Mathf.InverseLerp(0, dimension/2, Vector2.Distance(origin, target) / size);
         }
+    }
+
+    [Serializable]
+    public class TileSet
+    {
+        public GameObject FloorTilePrefab;
+        public GameObject WallTilePrefab;
     }
 }

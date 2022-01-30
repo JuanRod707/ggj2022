@@ -123,6 +123,9 @@ MonoBehaviour:
   dimension: 50
   size: 1.2
   maxWallHeight: 1
-  floorTilePrefab: {fileID: 2860899123810624407, guid: d48addf46036b854293efde906eba40f, type: 3}
-  wallTilePrefab: {fileID: 7831795672948538228, guid: 6df46dac258b75a4d8956d7b7b7fccaf, type: 3}
+  tileSets:
+  - FloorTilePrefab: {fileID: 2860899123810624407, guid: d48addf46036b854293efde906eba40f, type: 3}
+    WallTilePrefab: {fileID: 7831795672948538228, guid: 6df46dac258b75a4d8956d7b7b7fccaf, type: 3}
+  - FloorTilePrefab: {fileID: 2860899123810624407, guid: c4cbb8d0dc8f94447849241c2d49c377, type: 3}
+    WallTilePrefab: {fileID: 7831795672948538228, guid: c7f1acba275c3274684fa7d541f89480, type: 3}
   tileContainer: {fileID: 3179481696389865452}

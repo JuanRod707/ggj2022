@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5ddf5bf9c79424a4790078efb8b32e31, type: 2}
+  - {fileID: 2100000, guid: 65bbc5803417e9e4881cf3afe12d795d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,7 +155,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6df931c30d08a8140addcc74ef4cd8a4, type: 2}
+  - {fileID: 2100000, guid: f770c1db40c5da3459ba6c3db9584506, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6609731704414702208}
   - component: {fileID: 6881390174424798500}
   m_Layer: 0
-  m_Name: WallTile Prosperity
+  m_Name: WallTech
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

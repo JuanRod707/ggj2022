@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 6609731704414702208}
   - component: {fileID: 6881390174424798500}
   m_Layer: 0
-  m_Name: WallTile
+  m_Name: WallRuin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

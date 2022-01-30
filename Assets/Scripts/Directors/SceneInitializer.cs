@@ -29,7 +29,7 @@ namespace Assets.Scripts.Directors
             Invoke("NextLevel", 2f);
         }
 
-        void NextLevel() => SceneManager.LoadScene("Main");
+        void NextLevel() => SceneManager.LoadScene("Encounter");
 
         void OnAllMonstersDead()
         {
