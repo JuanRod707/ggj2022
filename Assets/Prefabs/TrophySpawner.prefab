@@ -79,6 +79,11 @@ MonoBehaviour:
   parameterSets:
   - {fileID: 11400000, guid: b9d3f16e46c562e43aef1c14dcc3a32c, type: 2}
   - {fileID: 11400000, guid: 80ec25d84acc7a94d82532bb73a4b542, type: 2}
+  - {fileID: 11400000, guid: 76aed8fb35d5de448822b0617765c029, type: 2}
+  - {fileID: 11400000, guid: 8e9d40f7d7dc52a4e9d82e0b5010a0f7, type: 2}
+  - {fileID: 11400000, guid: 41bc6500e5e6b614d943441c17a2e1d8, type: 2}
+  - {fileID: 11400000, guid: df18d8d112387f74e9cf3722fd8401b4, type: 2}
+  - {fileID: 11400000, guid: a94dc85119b8b994d84bfe0123efb4b3, type: 2}
   trophyPrefab: {fileID: 4227871229430259127, guid: 5107e9852f7b7bc4bb3a83a4d224bf06, type: 3}
   altarP: {fileID: 7634904459296306152}
   altarR: {fileID: 7634904458835357099}
