@@ -264,9 +264,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cone: {fileID: 4630607725316306749}
   animationEvents: {fileID: 0}
-  ProximityThreshold: 1
-  AttackFrequency: 2
-  FrequencyModifier: 0.2
+  proximityThreshold: 1
+  attackFrequency: 1.5
+  frequencyModifier: 0.5
 --- !u!1 &7991576633581767327
 GameObject:
   m_ObjectHideFlags: 0
