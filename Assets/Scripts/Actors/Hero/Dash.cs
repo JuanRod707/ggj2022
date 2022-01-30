@@ -21,7 +21,7 @@ namespace Assets.Scripts.Actors.Hero
 
         public void Do(Vector3 direction)
         {
-            if (!enabled)
+            if (!enabled && movement.enabled)
             {
                 this.direction = direction.normalized;
                 movement.Disable();

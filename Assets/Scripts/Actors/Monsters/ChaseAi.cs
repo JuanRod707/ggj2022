@@ -5,23 +5,24 @@ namespace Assets.Scripts.Actors.Monsters
 {
     public class ChaseAi : BaseAi
     {
-        [SerializeField] float ProximityThreshold;
-        [SerializeField] float AttackFrequency;
-        [SerializeField] float FrequencyModifier;
+        [SerializeField] float proximityThreshold;
+        [SerializeField] float attackFrequency;
+        [SerializeField] float frequencyModifier;
 
-        private float attackInterval => AttackFrequency + Random.Range(-FrequencyModifier, FrequencyModifier);
+        private float attackInterval => attackFrequency + Random.Range(-frequencyModifier, frequencyModifier);
 
-        private bool IsFarFromHero =>
-            Vector3.Distance(transform.position, hero.Position) > ProximityThreshold;
+        private bool AtMeleeDistance =>
+            Vector3.Distance(transform.position, hero.Position) < proximityThreshold;
         
         void Update()
         {
             if (!isPerformingAction)
             {
-                if (IsFarFromHero)
-                    movement.MoveTowards(hero.Position);
-                else
+                if (AtMeleeDistance)
                     Attack();
+                else
+                    movement.MoveTowards(hero.Position);
+                
             }
         }
 

@@ -5,17 +5,17 @@ namespace Assets.Scripts.Actors.Monsters
 {
     public class BlitzAi : BaseAi
     {
-        [SerializeField] float ProximityThreshold;
-        [SerializeField] float BaseAttackFrequency;
-        [SerializeField] float FrequencyModifier;
-        [SerializeField] float BaseRetreatTimer;
-        [SerializeField] float RetreatModifier;
+        [SerializeField] float proximityThreshold;
+        [SerializeField] float baseAttackFrequency;
+        [SerializeField] float frequencyModifier;
+        [SerializeField] float baseRetreatTimer;
+        [SerializeField] float retreatModifier;
 
-        private float attackInterval => BaseAttackFrequency + Random.Range(-FrequencyModifier, FrequencyModifier);
-        private float retreatInterval => BaseRetreatTimer + Random.Range(-RetreatModifier, RetreatModifier);
+        private float attackInterval => baseAttackFrequency + Random.Range(-frequencyModifier, frequencyModifier);
+        private float retreatInterval => baseRetreatTimer + Random.Range(-retreatModifier, retreatModifier);
 
         private bool IsFarFromHero =>
-            Vector3.Distance(transform.position, hero.Position) > ProximityThreshold;
+            Vector3.Distance(transform.position, hero.Position) > proximityThreshold;
 
         private bool isRetreating;
         private bool isChasing = true;

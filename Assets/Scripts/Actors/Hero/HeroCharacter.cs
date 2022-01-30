@@ -30,7 +30,7 @@ namespace Assets.Scripts.Actors.Hero
 
             hpBar.InitializeFull(currentStats.Health);
             movement.Initialize(attackArea, view, currentStats.MoveSpeed);
-            attack.Initialize(currentStats, view, attackArea, monsterProvider);
+            attack.Initialize(currentStats, view, attackArea, monsterProvider, movement);
             dash.Initialize(movement);
             health.Initialize(currentStats.Health, OnDeath, OnHurt);
         }

@@ -13,11 +13,13 @@ namespace Assets.Scripts.Actors.Hero
         ActorStats stats;
 
         bool canAttack;
+        HeroMovement movement;
 
         public void Do()
         {
             if (canAttack)
             {
+                movement.Disable();
                 canAttack = false;
                 view.OnAttack();
                 var hits = monsterProvider.GetMonstersInArea(attackArea);
@@ -35,11 +37,13 @@ namespace Assets.Scripts.Actors.Hero
         {
             yield return new WaitForSeconds(stats.AttackSpeed);
             canAttack = true;
+            movement.Enable();
         }
 
 
-        public void Initialize(ActorStats stats, HeroView view, ConeArea attackArea, MonsterProvider monsterProvider)
+        public void Initialize(ActorStats stats, HeroView view, ConeArea attackArea, MonsterProvider monsterProvider, HeroMovement movement)
         {
+            this.movement = movement;
             this.stats = stats;
             this.view = view;
             this.monsterProvider = monsterProvider;

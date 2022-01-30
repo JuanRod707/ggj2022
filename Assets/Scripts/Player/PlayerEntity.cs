@@ -55,7 +55,11 @@ namespace Assets.Scripts.Player
         {
             var trophy = trophies.First(t => t.Alignment == Alignment.Prosperity);
             SessionData.playerStats = Hero.currentStats.WithTrophy(trophy);
+            SessionData.Prosperity += trophy.Affinity;
+
             statPanel.SetValues(SessionData.playerStats);
+            prospBar.SetValue(SessionData.Prosperity);
+            
             onEndLevel();
         }
 
@@ -63,7 +67,11 @@ namespace Assets.Scripts.Player
         {
             var trophy = trophies.First(t => t.Alignment == Alignment.Ruin);
             SessionData.playerStats = Hero.currentStats.WithTrophy(trophy);
+            SessionData.Ruin += trophy.Affinity;
+
             statPanel.SetValues(SessionData.playerStats);
+            ruinBar.SetValue(SessionData.Ruin);
+
             onEndLevel();
         }
     }

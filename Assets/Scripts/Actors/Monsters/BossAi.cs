@@ -7,16 +7,16 @@ namespace Assets.Scripts.Actors.Monsters
 {
     public class BossAi : BaseAi
     {
-        [SerializeField] float ProximityThreshold;
-        [SerializeField] float AttackFrequency;
-        [SerializeField] float FrequencyModifier;
-        [SerializeField] float BaseSpecialInterval;
-        [SerializeField] float SpecialIntervalModifier;
-        [SerializeField] ShapedArea SpecialAttackArea;
-        [SerializeField] int SpecialAttackDamage;
+        [SerializeField] float proximityThreshold;
+        [SerializeField] float attackFrequency;
+        [SerializeField] float frequencyModifier;
+        [SerializeField] float baseSpecialInterval;
+        [SerializeField] float specialIntervalModifier;
+        [SerializeField] ShapedArea specialAttackArea;
+        [SerializeField] int specialAttackDamage;
 
         private float SpecialAttackInterval =>
-            BaseSpecialInterval + Random.Range(-SpecialIntervalModifier, SpecialIntervalModifier);
+            baseSpecialInterval + Random.Range(-specialIntervalModifier, specialIntervalModifier);
 
         public override void Initialize(HeroCharacter hero, ActorStats stats, MonsterMovement movement, MonsterView view)
         {
@@ -30,10 +30,10 @@ namespace Assets.Scripts.Actors.Monsters
             CastSpecialAttack();
         }
 
-        private float AttackInterval => AttackFrequency + Random.Range(-FrequencyModifier, FrequencyModifier);
+        private float AttackInterval => attackFrequency + Random.Range(-frequencyModifier, frequencyModifier);
 
         private bool IsFarFromHero =>
-            Vector3.Distance(transform.position, hero.Position) > ProximityThreshold;
+            Vector3.Distance(transform.position, hero.Position) > proximityThreshold;
         
         void Update()
         {
@@ -80,8 +80,8 @@ namespace Assets.Scripts.Actors.Monsters
         private void OnSpecialCast()
         {
             view.ShowSpecialAttack();
-            if (SpecialAttackArea.IsInArea(hero.Position))
-                hero.ReceiveDamage(SpecialAttackDamage);
+            if (specialAttackArea.IsInArea(hero.Position))
+                hero.ReceiveDamage(specialAttackDamage);
         }
     }
 }
