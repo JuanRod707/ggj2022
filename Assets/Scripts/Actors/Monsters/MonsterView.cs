@@ -11,8 +11,8 @@ namespace Assets.Scripts.Actors.Monsters
         [SerializeField] ParticleSystem specialVfx;
         [SerializeField] AudioPlayer audio;
 
-        void Update() => 
-            sprite.transform.rotation = Camera.main.transform.rotation;
+        void Update() =>
+            sprite.transform.eulerAngles = new Vector3(45, 0, 0);
 
         public void WakeUp()
         {
