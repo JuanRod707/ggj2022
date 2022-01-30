@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: b8c19dbfeaf527b46bed84a64279f2a8
+guid: 00a87c2e59757eb4fa423da4f88f8faf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1511875024508239458
-    second: heroRun1_0
+      213: 1916171253231869073
+    second: heroAttack_0
   - first:
-      213: 508211170557338555
-    second: heroRun1_1
+      213: -5377653435696887002
+    second: heroAttack_1
   - first:
-      213: 2142871160061151731
-    second: heroRun1_2
+      213: 5363232958609780193
+    second: heroAttack_2
   - first:
-      213: 5681497499980911310
-    second: heroRun1_3
+      213: 8806460808675700286
+    second: heroAttack_3
   - first:
-      213: 2835425694083357355
-    second: heroRun1_4
-  - first:
-      213: -8122795151622700932
-    second: heroRun1_5
+      213: -7403453656820659999
+    second: heroAttack_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,7 +80,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -95,7 +92,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -107,7 +104,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -119,7 +116,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -133,7 +130,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heroRun1_0
+      name: heroAttack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -147,14 +144,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e399413524bf410800000000000000
-      internalID: 1511875024508239458
+      spriteID: 19c53bd3a9b979a10800000000000000
+      internalID: 1916171253231869073
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroRun1_1
+      name: heroAttack_1
       rect:
         serializedVersion: 2
         x: 100
@@ -168,14 +165,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb3a4f3fd578d0700800000000000000
-      internalID: 508211170557338555
+      spriteID: 62bc02831bcbe55b0800000000000000
+      internalID: -5377653435696887002
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroRun1_2
+      name: heroAttack_2
       rect:
         serializedVersion: 2
         x: 200
@@ -189,14 +186,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f9cfd677f10dbd10800000000000000
-      internalID: 2142871160061151731
+      spriteID: 1ed6a91d5f70e6a40800000000000000
+      internalID: 5363232958609780193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroRun1_3
+      name: heroAttack_3
       rect:
         serializedVersion: 2
         x: 300
@@ -210,14 +207,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec2d1a6dfdbb8de40800000000000000
-      internalID: 5681497499980911310
+      spriteID: e3ea3856275d63a70800000000000000
+      internalID: 8806460808675700286
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: heroRun1_4
+      name: heroAttack_4
       rect:
         serializedVersion: 2
         x: 400
@@ -231,29 +228,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baa9ad265a4795720800000000000000
-      internalID: 2835425694083357355
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heroRun1_5
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 100
-        height: 55
-      alignment: 9
-      pivot: {x: 0.5, y: 0.05}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c70834498d8064f80800000000000000
-      internalID: -8122795151622700932
+      spriteID: 1e84322df16a14990800000000000000
+      internalID: -7403453656820659999
       vertices: []
       indices: 
       edges: []

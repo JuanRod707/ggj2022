@@ -29,6 +29,7 @@ namespace Assets.Scripts.Actors.Hero
                     monster.ReceiveDamage(damage);
                 }
 
+                view.OnAttack();
                 StartCoroutine(AttackCooldown());
             }
         }

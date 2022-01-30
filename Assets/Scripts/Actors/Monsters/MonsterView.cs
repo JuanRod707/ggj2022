@@ -10,6 +10,7 @@ namespace Assets.Scripts.Actors.Monsters
     public class MonsterView : MonoBehaviour
     {
         [SerializeField] SpriteRenderer sprite;
+        [SerializeField] ParticleSystem trailVfx;
 
         void Update() => 
             sprite.transform.rotation = Camera.main.transform.rotation;
@@ -43,6 +44,23 @@ namespace Assets.Scripts.Actors.Monsters
 
         public void Initialize()
         {
+            if (trailVfx != null)
+            {
+                var emitter = trailVfx.emission;
+                emitter.enabled = false;
+            }
+        }
+
+        public void ShowTrailVfx()
+        {
+            var emitter = trailVfx.emission;
+            emitter.enabled = true;
+        }
+
+        public void StopTrailVfx()
+        {
+            var emitter = trailVfx.emission;
+            emitter.enabled = false;
         }
     }
 }

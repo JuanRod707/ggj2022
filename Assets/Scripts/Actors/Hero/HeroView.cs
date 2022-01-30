@@ -24,8 +24,11 @@ namespace Assets.Scripts.Actors.Hero
                 sprite.flipX = movementVector.x < 0;
         }
 
-        public void OnAttack() => 
+        public void OnAttack()
+        {
             swordSwing.SetTrigger("Swing");
+            animator.SetTrigger("Attack");
+        }
 
         public void OnDash()
         {

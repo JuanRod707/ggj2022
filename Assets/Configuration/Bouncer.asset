@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f5eb0198c72c50409a3d5f74f376b8d, type: 3}
   m_Name: Bouncer
   m_EditorClassIdentifier: 
-  movement: 3
+  movement: 2
   dexterity: 2
   strength: 6
   vitality: 4

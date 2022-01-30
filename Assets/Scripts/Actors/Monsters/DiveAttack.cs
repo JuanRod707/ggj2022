@@ -19,13 +19,14 @@ namespace Assets.Scripts.Actors.AI
         {
             this.view = view;
             enabled = false;
-            speed = stats.MoveSpeed * 3;
+            speed = stats.MoveSpeed * 4;
         }
 
         public void Do(Vector3 direction)
         {
             this.direction = direction.normalized;
             view.ShowAttack();
+            view.ShowTrailVfx();
             elapsed = duration;
             enabled = true;
         }
@@ -43,6 +44,7 @@ namespace Assets.Scripts.Actors.AI
 
         void OnDashFinised()
         {
+            view.StopTrailVfx();
             enabled = false;
         }
     }
