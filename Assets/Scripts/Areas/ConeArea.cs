@@ -44,5 +44,8 @@ namespace Assets.Scripts.Areas
 
             transform.eulerAngles = euler;
         }
+
+        public void SetConeTo(float area) => 
+            angle = area;
     }
 }

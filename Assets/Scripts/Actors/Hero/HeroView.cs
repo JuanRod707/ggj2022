@@ -35,6 +35,7 @@ namespace Assets.Scripts.Actors.Hero
 
         public void OnDash()
         {
+            animator.SetTrigger("Dash");
             var emission = dashVfx.emission;
             emission.enabled = true;
             audio.PlayDash();
@@ -49,7 +50,10 @@ namespace Assets.Scripts.Actors.Hero
         public void OnStop() => 
             animator.SetFloat("MoveSpeed", 0);
 
-        public void OnHurt() => 
+        public void OnHurt()
+        {
+            animator.SetTrigger("Hurt");
             audio.PlayHit();
+        }
     }
 }

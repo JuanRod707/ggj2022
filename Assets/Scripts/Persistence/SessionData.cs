@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Scripts.Actors;
+using UnityEngine;
 
 namespace Assets.Scripts.Persistence
 {
@@ -14,5 +15,6 @@ namespace Assets.Scripts.Persistence
         public static int Prosperity;
 
         public static int Level = 1;
+        public static int DeltaAffinity => Mathf.Abs(Ruin - Prosperity);
     }
 }

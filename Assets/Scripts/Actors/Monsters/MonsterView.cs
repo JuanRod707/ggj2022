@@ -8,6 +8,7 @@ namespace Assets.Scripts.Actors.Monsters
         [SerializeField] Animator animator;
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] ParticleSystem trailVfx;
+        [SerializeField] ParticleSystem specialVfx;
         [SerializeField] AudioPlayer audio;
 
         void Update() => 
@@ -39,6 +40,7 @@ namespace Assets.Scripts.Actors.Monsters
 
         public void ShowSpecialAttack()
         {
+            specialVfx.Play();
         }
 
         public void Initialize()
@@ -64,7 +66,16 @@ namespace Assets.Scripts.Actors.Monsters
             emitter.enabled = false;
         }
 
-        public void OnHurt() =>
+        public void OnHurt()
+        {
+            animator.SetTrigger("Hurt");
             audio.PlayHit();
+        }
+
+        public void OnDead()
+        {
+            animator.SetTrigger("Dead");
+            audio.PlayDeath();
+        }
     }
 }

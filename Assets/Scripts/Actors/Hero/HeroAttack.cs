@@ -50,6 +50,7 @@ namespace Assets.Scripts.Actors.Hero
             this.monsterProvider = monsterProvider;
             this.attackArea = attackArea;
 
+            attackArea.SetConeTo(stats.AttackArea);
             canAttack = true;
         }
     }

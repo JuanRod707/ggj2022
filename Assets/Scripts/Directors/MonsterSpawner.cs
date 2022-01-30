@@ -12,6 +12,9 @@ namespace Assets.Scripts.Directors
     public class MonsterSpawner : MonoBehaviour
     {
         [SerializeField] MonsterWeightedList monsterPrefabs;
+        [SerializeField] Monster ruinBoss;
+        [SerializeField] Monster prosperityBoss;
+        [SerializeField] int bossLevel;
 
         [SerializeField] int baseAmount;
         [SerializeField] float radius;
@@ -31,6 +34,15 @@ namespace Assets.Scripts.Directors
             foreach (var _ in Enumerable.Range(0, amountToSpawn))
             {
                 var prefab = monsterPrefabs.TakeOne();
+                var monster = Instantiate(prefab, transform);
+                var spawnPos = Random.insideUnitCircle * radius;
+                monster.transform.position = new Vector3(spawnPos.x, 0, spawnPos.y);
+                monsters.Add(monster);
+            }
+
+            if (SessionData.Level == bossLevel)
+            {
+                var prefab = SessionData.Ruin < SessionData.Prosperity ? ruinBoss : prosperityBoss;
                 var monster = Instantiate(prefab, transform);
                 var spawnPos = Random.insideUnitCircle * radius;
                 monster.transform.position = new Vector3(spawnPos.x, 0, spawnPos.y);

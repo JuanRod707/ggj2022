@@ -13,7 +13,7 @@ namespace Assets.Scripts.Actors.Monsters
         [SerializeField] float baseSpecialInterval;
         [SerializeField] float specialIntervalModifier;
         [SerializeField] ShapedArea specialAttackArea;
-        [SerializeField] int specialAttackDamage;
+        int specialAttackDamage;
 
         private float SpecialAttackInterval =>
             baseSpecialInterval + Random.Range(-specialIntervalModifier, specialIntervalModifier);
@@ -22,6 +22,7 @@ namespace Assets.Scripts.Actors.Monsters
         {
             base.Initialize(hero, stats, movement, view);
             this.animationEvents?.Initialize(OnSwing, OnSpecialCast);
+            specialAttackDamage = stats.MaxDamage / 2;
         }
 
         private IEnumerator WaitForSpecialAttack()
@@ -75,6 +76,7 @@ namespace Assets.Scripts.Actors.Monsters
             view.ShowSpecialCast();
             StartCoroutine(WaitForNextAttack());
             StartCoroutine(WaitForSpecialAttack());
+            OnSpecialCast();
         }
 
         private void OnSpecialCast()

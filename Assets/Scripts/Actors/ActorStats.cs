@@ -47,10 +47,10 @@ namespace Assets.Scripts.Actors
         {
             return new ActorStats
             {
-                movement = this.movement + (level - 1) * 3,
-                dexterity = this.dexterity + (level - 1) * 3,
-                strength = this.strength + (level - 1) * 3,
-                vitality = this.vitality + (level - 1) * 3
+                movement = this.movement + (level - 1),
+                dexterity = this.dexterity + (level - 1),
+                strength = this.strength + (level - 1) * 2,
+                vitality = this.vitality + (level - 1) * 2
             };
         }
     }

@@ -25,7 +25,7 @@ namespace Assets.Scripts.Actors.Monsters
 
         public void Initialize(HeroCharacter hero, Action<Monster> onDeath)
         {
-            currentStats = baseStats.Leveled(SessionData.Level);
+            currentStats = brain is BossAi ? baseStats.Leveled(SessionData.DeltaAffinity) : baseStats.Leveled(SessionData.Level);
 
             view.Initialize();
             movement.Initialize(currentStats.MoveSpeed, view, agent);
@@ -53,6 +53,7 @@ namespace Assets.Scripts.Actors.Monsters
             IsAlive = false;
             onDeath(this);
             brain.Disable();
+            view.OnDead();
         }
     }
 }
