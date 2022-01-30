@@ -293,8 +293,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterPrefabs:
-  - {fileID: 6443956748123548902, guid: d3d89b72b9c69444b8a109228271a84c, type: 3}
-  - {fileID: 6443956748123548902, guid: 99c537c3a32e229459c2fd016af0ca64, type: 3}
+    materialWeights:
+    - Monster: {fileID: 6443956748123548902, guid: d3d89b72b9c69444b8a109228271a84c, type: 3}
+      Weight: 3
+    - Monster: {fileID: 6443956748123548902, guid: 99c537c3a32e229459c2fd016af0ca64, type: 3}
+      Weight: 3
+    - Monster: {fileID: 6443956748123548902, guid: 736a258474bdc334284f70d4e55a3b2f, type: 3}
+      Weight: 1
+    - Monster: {fileID: 6443956748123548902, guid: 0f0081d5a6c6dee4fb1b61d3ffae9070, type: 3}
+      Weight: 1
   baseAmount: 2
   radius: 8
 --- !u!1 &164693152
