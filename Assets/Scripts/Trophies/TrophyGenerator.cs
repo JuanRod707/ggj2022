@@ -8,26 +8,38 @@ namespace Assets.Scripts.Trophies
     {
         [SerializeField] ModifierParameterSet[] parameterSets;
         [SerializeField] Trophy trophyPrefab;
-        [SerializeField] Transform altar1;
-        [SerializeField] Transform altar2;
+        [SerializeField] Transform altarP;
+        [SerializeField] Transform altarR;
+        [SerializeField] GameObject TrophyPopUp;
+        [SerializeField] TrophyTooltip tooltipP;
+        [SerializeField] TrophyTooltip tooltipR;
 
-        void Start() => Generate();
-
-        public void Generate()
+        public Trophy RuinTrophy { get; private set; }
+        public Trophy ProsperityTrophy { get; private set; }
+        
+        void Generate()
         {
             var alignment = Alignment.Ruin;
             var set = parameterSets.PickOne();
             var statMods = set.parameters.Select(mp => new StatMod(mp));
 
-            var trophy = Instantiate(trophyPrefab, altar1);
-            trophy.Initialize(alignment, set.Affinity, statMods);
+            RuinTrophy = Instantiate(trophyPrefab, altarR);
+            RuinTrophy.Initialize(alignment, set.Affinity, statMods, tooltipR);
 
             alignment = Alignment.Prosperity;
             set = parameterSets.PickOne();
             statMods = set.parameters.Select(mp => new StatMod(mp));
 
-            trophy = Instantiate(trophyPrefab, altar2);
-            trophy.Initialize(alignment, set.Affinity, statMods);
+            ProsperityTrophy = Instantiate(trophyPrefab, altarP);
+            ProsperityTrophy.Initialize(alignment, set.Affinity, statMods, tooltipP);
+
+            TrophyPopUp.SetActive(true);
+        }
+
+        public void Show()
+        {
+            Generate();
+            gameObject.SetActive(true);
         }
     }
 }

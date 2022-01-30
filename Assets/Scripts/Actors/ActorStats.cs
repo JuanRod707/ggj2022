@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Trophies;
+using UnityEngine;
 
 namespace Assets.Scripts.Actors
 {
@@ -28,6 +29,17 @@ namespace Assets.Scripts.Actors
                 dexterity = this.dexterity,
                 strength = this.strength,
                 vitality = this.vitality
+            };
+        }
+
+        public ActorStats WithTrophy(Trophy trophy)
+        {
+            return new ActorStats
+            {
+                movement = this.movement + trophy.ModFor(Stat.Movement),
+                dexterity = this.dexterity + trophy.ModFor(Stat.Dexterity),
+                strength = this.strength + trophy.ModFor(Stat.Strength),
+                vitality = this.vitality + trophy.ModFor(Stat.Vitality)
             };
         }
     }

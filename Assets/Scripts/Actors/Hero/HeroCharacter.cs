@@ -19,7 +19,7 @@ namespace Assets.Scripts.Actors.Hero
 
         public Vector3 Position => transform.position;
 
-        ActorStats currentStats;
+        public ActorStats currentStats { get; private set; }
 
         public void Initialize(MonsterProvider monsterProvider, FillBar hpBar)
         {

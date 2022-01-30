@@ -45,8 +45,8 @@ namespace Assets.Scripts.Actors.Monsters
         
         void OnDeath()
         {
-            onDeath(this);
             IsAlive = false;
+            onDeath(this);
             brain.Disable();
         }
     }

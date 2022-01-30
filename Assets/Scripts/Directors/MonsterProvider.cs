@@ -1,23 +1,44 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using Assets.Scripts.Actors;
 using Assets.Scripts.Actors.Hero;
 using Assets.Scripts.Actors.Monsters;
 using Assets.Scripts.Areas;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Assets.Scripts.Directors
 {
     public class MonsterProvider : MonoBehaviour
     {
-        IEnumerable<Monster> monsters;
+        [SerializeField] Monster monsterPrefab;
+        [SerializeField] int amount;
+        [SerializeField] float radius;
 
-        public void Initialize(HeroCharacter hero)
+        List<Monster> monsters;
+        Action onAllMonstersDead;
+
+        public void Initialize(HeroCharacter hero, Action onAllMonstersDead)
         {
-            monsters = GetComponentsInChildren<Monster>();
+            monsters = new List<Monster>();
+            SpawnMonsters();
+
+            this.onAllMonstersDead = onAllMonstersDead;
 
             foreach (var m in monsters)
                 m.Initialize(hero, OnMonsterDied);
+        }
+
+        void SpawnMonsters()
+        {
+            foreach (var _ in Enumerable.Range(0, amount))
+            {
+                var monster = Instantiate(monsterPrefab, transform);
+                var spawnPos = Random.insideUnitCircle * radius;
+                monster.transform.position = new Vector3(spawnPos.x, 0, spawnPos.y);
+                monsters.Add(monster);
+            }
+
         }
 
         public IEnumerable<Monster> GetMonstersInArea(ConeArea area) =>
@@ -25,8 +46,8 @@ namespace Assets.Scripts.Directors
 
         void OnMonsterDied(Monster monster)
         {
-           //if(!monsters.Any(m => m.IsAlive))
-               //player wins
+            if (monsters.All(m => !m.IsAlive))
+                onAllMonstersDead();
         }
     }
 }
