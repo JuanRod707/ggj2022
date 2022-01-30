@@ -232,6 +232,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1999103712}
   monsterProvider: {fileID: 267650605}
+  trophySpawner: {fileID: 0}
 --- !u!4 &267650604
 Transform:
   m_ObjectHideFlags: 0
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6440b600e568e47a4e2d11ba3ab593, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -439,17 +441,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5726074099578199561, guid: 63032a8a0e3cd4a42b6054beab9c3220, type: 3}
   m_PrefabInstance: {fileID: 5726074099177932024}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &704420594 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5726074099578199562, guid: 63032a8a0e3cd4a42b6054beab9c3220, type: 3}
-  m_PrefabInstance: {fileID: 5726074099177932024}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509b802b8e4e28142b144aa58f4daedd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1285797964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6443956748123548903, guid: 99c537c3a32e229459c2fd016af0ca64, type: 3}
@@ -542,6 +533,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6cead0b68777ec45b69b685bd34d9aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumAxisThreshold: 0
 --- !u!4 &1999103711
 Transform:
   m_ObjectHideFlags: 0
@@ -568,8 +560,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8f6090eef4af8b4ba3b4985dcda9b0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 704420594}
+  character: {fileID: 0}
   input: {fileID: 1999103710}
+  trophyInput: {fileID: 0}
+  hpBar: {fileID: 0}
+  ruinBar: {fileID: 0}
+  prospBar: {fileID: 0}
+  statPanel: {fileID: 0}
 --- !u!1001 &5726074099177932024
 PrefabInstance:
   m_ObjectHideFlags: 0
