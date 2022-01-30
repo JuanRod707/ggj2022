@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Audio;
+using UnityEngine;
 
 namespace Assets.Scripts.Actors.Hero
 {
@@ -10,6 +11,7 @@ namespace Assets.Scripts.Actors.Hero
         [SerializeField] float moveSpeedFactor;
 
         [SerializeField] ParticleSystem dashVfx;
+        [SerializeField] AudioPlayer audio;
 
         public void Initialize()
         {
@@ -28,12 +30,14 @@ namespace Assets.Scripts.Actors.Hero
         {
             swordSwing.SetTrigger("Swing");
             animator.SetTrigger("Attack");
+            audio.PlayAttack();
         }
 
         public void OnDash()
         {
             var emission = dashVfx.emission;
             emission.enabled = true;
+            audio.PlayDash();
         }
 
         public void OnStopDash()
@@ -44,5 +48,8 @@ namespace Assets.Scripts.Actors.Hero
 
         public void OnStop() => 
             animator.SetFloat("MoveSpeed", 0);
+
+        public void OnHurt() => 
+            audio.PlayHit();
     }
 }

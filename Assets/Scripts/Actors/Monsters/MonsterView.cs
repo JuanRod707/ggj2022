@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Audio;
 using UnityEngine;
 
 namespace Assets.Scripts.Actors.Monsters
 {
     public class MonsterView : MonoBehaviour
     {
+        [SerializeField] Animator animator;
         [SerializeField] SpriteRenderer sprite;
         [SerializeField] ParticleSystem trailVfx;
+        [SerializeField] AudioPlayer audio;
 
         void Update() => 
             sprite.transform.rotation = Camera.main.transform.rotation;
@@ -32,6 +30,7 @@ namespace Assets.Scripts.Actors.Monsters
 
         public void ShowAttack()
         {
+            audio.PlayAttack();
         }
 
         public void ShowSpecialCast()
@@ -51,16 +50,21 @@ namespace Assets.Scripts.Actors.Monsters
             }
         }
 
-        public void ShowTrailVfx()
+        public void OnDash()
         {
+            animator.SetTrigger("Attack");
             var emitter = trailVfx.emission;
             emitter.enabled = true;
+            audio.PlayDash();
         }
 
-        public void StopTrailVfx()
+        public void OnStopDash()
         {
             var emitter = trailVfx.emission;
             emitter.enabled = false;
         }
+
+        public void OnHurt() =>
+            audio.PlayHit();
     }
 }

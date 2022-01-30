@@ -26,7 +26,7 @@ namespace Assets.Scripts.Actors.AI
         {
             this.direction = direction.normalized;
             view.ShowAttack();
-            view.ShowTrailVfx();
+            view.OnDash();
             elapsed = duration;
             enabled = true;
         }
@@ -44,7 +44,7 @@ namespace Assets.Scripts.Actors.AI
 
         void OnDashFinised()
         {
-            view.StopTrailVfx();
+            view.OnStopDash();
             enabled = false;
         }
     }

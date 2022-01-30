@@ -36,8 +36,11 @@ namespace Assets.Scripts.Actors.Hero
             view.Initialize();
         }
 
-        void OnHurt() => 
+        void OnHurt()
+        {
+            view.OnHurt();
             hpBar.SetValue(health.Current);
+        }
 
         void OnDeath()
         {

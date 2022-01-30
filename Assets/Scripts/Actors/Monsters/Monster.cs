@@ -39,6 +39,7 @@ namespace Assets.Scripts.Actors.Monsters
 
         void OnHurt()
         {
+            view.OnHurt();
         }
 
         public void ReceiveDamage(int damage)
