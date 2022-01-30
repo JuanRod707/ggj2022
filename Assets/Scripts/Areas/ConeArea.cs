@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Areas
 {
@@ -19,8 +18,8 @@ namespace Assets.Scripts.Areas
 
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitLeft), Color.yellow);
             Debug.DrawLine(transform.position, transform.TransformPoint(arcLimitRight), Color.yellow);
-            Handles.DrawWireArc(transform.position, -transform.up,transform.forward, angle/2, length * angle * k);
-            Handles.DrawWireArc(transform.position, transform.up, transform.forward, angle / 2, length * angle * k);
+            //Handles.DrawWireArc(transform.position, -transform.up,transform.forward, angle/2, length * angle * k);
+            //Handles.DrawWireArc(transform.position, transform.up, transform.forward, angle / 2, length * angle * k);
         }
 
         public override bool IsInArea(Vector3 target)

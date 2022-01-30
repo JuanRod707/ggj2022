@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Assets.Scripts.Actors.Hero;
-using Assets.Scripts.Directors;
-using UnityEditor;
+﻿using Assets.Scripts.Actors.Hero;
 using UnityEngine;
 
 namespace Assets.Scripts.Actors.Monsters
@@ -39,6 +32,6 @@ namespace Assets.Scripts.Actors.Monsters
             }
         }
 
-        void OnDrawGizmos() => Handles.DrawWireDisc(transform.position, Vector3.up, ActivationDistance);
+        //void OnDrawGizmos() => Handles.DrawWireDisc(transform.position, Vector3.up, ActivationDistance);
     }
 }
