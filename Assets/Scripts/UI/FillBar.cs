@@ -8,6 +8,7 @@ namespace Assets.Scripts.UI
         [SerializeField] Image bar;
 
         int maxValue;
+        float targetValue;
 
         public void Initialize(int maxValue) =>
             this.maxValue = maxValue;
@@ -20,7 +21,12 @@ namespace Assets.Scripts.UI
 
         public void SetValue(int value)
         {
-            bar.fillAmount =  value / (float)maxValue;
+            targetValue =  value / (float)maxValue;
+        }
+
+        void Update()
+        {
+            bar.fillAmount = Mathf.Lerp(bar.fillAmount, targetValue, 0.1f);
         }
     }
 }
