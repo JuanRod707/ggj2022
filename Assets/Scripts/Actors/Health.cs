@@ -6,6 +6,8 @@ namespace Assets.Scripts.Actors
 {
     public class Health: MonoBehaviour
     {
+        [SerializeField] float immunityTime;
+
         public int Current { get; private set; }
         Action onDeath;
         Action onHurt;
@@ -35,7 +37,7 @@ namespace Assets.Scripts.Actors
 
         IEnumerator BecomeImmune()
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(immunityTime);
             isImmune = false;
         }
     }
